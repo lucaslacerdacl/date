@@ -14,8 +14,15 @@ using namespace std;
 int main() {
     string format = "dd/mm/aaaa";
     string date = "21/06/1996";
+
+    string differentFormat = "mm/dd/aaaa";
+    string differentDate = "12/25/1800";
     
     Date dateClass(format, date);
+    Date differenteDateClass(differentFormat, differentDate);
+
+    cout << dateClass.operator=(differenteDateClass) << endl;
+
     cout << dateClass.getDate() << endl;
 
     cout << dateClass.getDateWithTheNewFormat("dd/mm/aaaa") << endl;
@@ -31,11 +38,6 @@ int main() {
 
     cout << dateClass.sumYear(1) << endl;
     cout << dateClass.subtractYear(1) << endl;
-
-    cout << dateClass.sumMonth(1) << endl;
-    cout << dateClass.subtractMonth(3) << endl;
-
-    cout << dateClass.operator=(dateClass) << endl;
 
     return 0;
 }

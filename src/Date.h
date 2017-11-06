@@ -23,18 +23,6 @@ private:
 
 public:
     Date(string _format, string _date) : DateInterface(_format, _date) {};
-
-    int getDay() {
-        return day;
-    }
-
-    int getMonth() {
-        return month;
-    }
-
-    int getYear() {
-        return year;
-    }
     
     string getDate() {
         fixLeapYear();
@@ -61,23 +49,6 @@ public:
 
     string subtractYear(int years) {
         year = year - years;
-        return getDate();
-    };
-
-    string sumMonth(int months) {
-        year = year + (month + months) / 12;
-        month = (month + months) % 12;
-        return getDate();
-    };
-
-    string subtractMonth(int months) {
-        int monthsResult = month - months;
-        if(monthsResult < 0) {
-            month = 12 + monthsResult;
-            year = year - (monthsResult) / 12;
-        } else {
-            month = monthsResult;
-        }
         return getDate();
     };
 

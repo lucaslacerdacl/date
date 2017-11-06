@@ -42,12 +42,23 @@ public:
             throw UndefinedDateFormat();
         }
     };
+
+    int getDay() {
+        return day;
+    }
+
+    int getMonth() {
+        return month;
+    }
+
+    int getYear() {
+        return year;
+    }
+    
     virtual string getDate() = 0;
     virtual string getDateWithTheNewFormat(string format) = 0;
     virtual string getDateInFull() = 0;
     virtual string sumYear(int days) = 0;
     virtual string subtractYear(int days) = 0;
-    virtual string sumMonth(int months) = 0;
-    virtual string subtractMonth(int months) = 0;
     ~DateInterface() {};
 };
