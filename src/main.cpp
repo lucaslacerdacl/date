@@ -11,6 +11,13 @@ using namespace std;
 #include "./example.cpp"
 
 int main() {
-    runExamples();
+    try {
+        runExamples();
+    } catch(Exception& e) {
+        cout << e.what() << endl;
+    } catch(exception& e) {
+        cout << e.what() << endl;
+    }
+
     return 0;
 }
