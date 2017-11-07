@@ -97,7 +97,7 @@ public:
                 dayInFull = "Trinta e um";
                 break;
             default:
-                throw UndefinedDay();
+                throw Exception::undefinedDay();
         }
         return dayInFull;
     };
@@ -142,7 +142,7 @@ public:
                 monthInFull = "Dezembro";
                 break;
             default:
-                throw UndefinedMonth();
+                throw Exception::undefinedMonth();
         }
         return monthInFull;
     };
@@ -161,7 +161,7 @@ public:
                 thousandInFull = "Dois mil";
                 break;
             default:
-                throw UndefinedYear();
+                throw Exception::undefinedYear();
         }
 
         string hundredInFull;
@@ -197,7 +197,7 @@ public:
                 hundredInFull = "Novecentos";
                 break;
             default:
-                throw UndefinedYear();
+                throw Exception::undefinedYear();
         }
         
         string tensInFull;
@@ -237,7 +237,7 @@ public:
                     tensInFull = "Dezenove";
                     break;
                 default:
-                    throw UndefinedYear();
+                    throw Exception::undefinedYear();
             }     
             return thousandInFull + " " + hundredInFull + " e " + tensInFull;       
         } else {
@@ -270,7 +270,7 @@ public:
                     tensInFull = "Noventa";
                     break;
                 default:
-                    throw UndefinedYear();
+                    throw Exception::undefinedYear();
             }
 
             string unitInFull;
@@ -306,7 +306,7 @@ public:
                     unitInFull = "Nove";
                     break;
                 default:
-                    throw UndefinedYear();
+                    throw Exception::undefinedYear();
             }
             
             if(tensInFull.size() == 0 && unitInFull.size() == 0) {

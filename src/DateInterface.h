@@ -5,10 +5,27 @@ protected:
     int year;
     string format;
     char separator;
-    const char dayFormat = 'd';
-    const char monthFormat = 'm';
-    const char yearFormat = 'a';
+    const static char dayFormat = 'd';
+    const static char monthFormat = 'm';
+    const static char yearFormat = 'a';
 private:
+    void checkDate() {
+        if(!((year % 4 == 0 && year % 100 != 0 ) || year % 400 == 0) && (month == 2 && day == 29)) {
+            throw Exception::leapYear();
+        }
+        if(year < 0 || month < 0 || day < 0) {
+            throw Exception::invalidDate();
+        }
+        if(year > 9999) {
+            throw Exception::invalidYear();
+        }
+        if(month > 12) {
+            throw Exception::invalidMonth();
+        }
+        if(day > 31) {
+            throw Exception::invalidDay();
+        }
+    };
     void formatDateToParams(string _date, int postions[8]) {
         string tempDay, tempMonth, tempYear;
         tempYear.push_back(_date[postions[0]]);
@@ -22,6 +39,7 @@ private:
         year = stod(tempYear);
         month = stod(tempMonth);
         day = stod(tempDay);
+        checkDate();
     };
 public:
     DateInterface(string _format, string _date) {
@@ -39,7 +57,7 @@ public:
             separator = _date[2];
             formatDateToParams(_date, positions);
         } else {
-            throw UndefinedDateFormat();
+            throw Exception::undefinedDateFormat();
         }
     };
 
@@ -60,5 +78,9 @@ public:
     virtual string getDateInFull() = 0;
     virtual string sumYear(int days) = 0;
     virtual string subtractYear(int days) = 0;
+    virtual string sumMonth(int months) = 0;
+    virtual string subtractMonth(int months) = 0;
+    virtual string sumDay(int days) = 0;
+    virtual string subtractDay(int days) = 0;
     ~DateInterface() {};
 };
