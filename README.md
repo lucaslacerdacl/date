@@ -54,6 +54,28 @@ string subtractMonth(int months);
 string subtractDay(int days);
 ```
 
+#### Exceptions
+```c
+// Format other than specification 
+Exception::undefinedDateFormat
+// Non existent day
+Exception::undefinedDay
+// Non existent month
+Exception::undefinedMonth
+// Non existent year
+Exception::undefinedYear
+// February 29 in non-leap year
+Exception::leapYear
+// Invalid values from year, month and/or day
+Exception::invalidDate
+// Invalid values from yeary
+Exception::invalidYear
+// Invalid values from month
+Exception::invalidMonth
+// Invalid values from day
+Exception::invalidDay
+```
+
 ## Developing
 
 ### Built With
