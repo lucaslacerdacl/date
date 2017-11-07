@@ -3,6 +3,11 @@
 
 The objective of this project is to create the Date class inherited from the DateInterface class provided by the documentation in the topic 2.2 in the file "POO - TP2.pdf".
 
+### Contributors
+
+* Lucas Leandro Costa Lacerda
+* Hebert do Nascimento Amaral Costa
+
 ## Getting started
 
 To use the Date class instantiate with the format and date as show the following code.
@@ -82,6 +87,11 @@ Exception::invalidDay
  - iostream
  - vector
  - exception
+
+## Style guide
+
+ - The Data class receives the date and performs all functions on the current day, month, and year provided.
+ - When the interface should add a month on January 31 or remove a month on March 31, the program adds 3 days when the year is not leap year and 2 days when the year is leap year (PHP works the same way).
 
 ### Setting up Example
 
