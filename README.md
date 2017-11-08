@@ -57,6 +57,9 @@ string sumDay(int days);
 string subtractYear(int days);
 string subtractMonth(int months);
 string subtractDay(int days);
+
+// difference between dates
+int differenceBetweenDates(Date date);
 ```
 
 #### Exceptions

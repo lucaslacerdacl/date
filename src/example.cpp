@@ -1,9 +1,9 @@
 void runExamples() {
     string format = "dd/mm/aaaa";
-    string date = "21/01/2017";
+    string date = "21/02/2017";
 
-    string differentFormat = "mm/dd/aaaa";
-    string differentDate = "12/25/1800";
+    string differentFormat = "mm-dd-aaaa";
+    string differentDate = "02/21/1800";
     
     Date dateClass(format, date);
 
@@ -53,4 +53,9 @@ void runExamples() {
     cout << dateClass.subtractDay(30) << endl;
     cout << dateClass.subtractDay(11) << endl;
     cout << dateClass.subtractDay(10) << endl;
+
+    cout << "\n8 - Difference between dates\n" << endl;
+    cout << dateClass.differenceBetweenDates(differenteDateClass) << endl;
+    
+    cout << '\n' << endl;
 }

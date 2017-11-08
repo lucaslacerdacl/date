@@ -61,6 +61,40 @@ private:
             }
         }
     };
+    int convertYearToDays(int _year) {
+        int totalYear = 0;
+        while(_year > 0 ) {
+            if((_year % 4 == 0 && _year % 100 != 0 ) || _year % 400 == 0) {
+                totalYear += 366;
+            } else {
+                totalYear += 365;
+            }
+            _year--;
+        }
+        return totalYear;
+    };
+    int convertMonthToDays(int _month, int _year) {
+        int totalMonth = 0;
+        while(_month > 0) {
+            if(_month % 2 == 0) {
+                if(_month == 2) {
+                    if((_year % 4 == 0 && _year % 100 != 0 ) || _year % 400 == 0) {
+                        totalMonth += 29;
+                    } else {
+                        totalMonth += 28;
+                    }
+                } else if(_month == 8) {
+                    totalMonth += 31;
+                } else {
+                    totalMonth += 30;
+                }
+            } else {
+                totalMonth += 31;
+            }
+            _month--;
+        }
+        return totalMonth;
+    };
     
 public:
     Date(string _format, string _date) : DateInterface(_format, _date) {};
@@ -178,6 +212,19 @@ public:
             day -=days;
         }
         return getDate();
+    };
+
+    int differenceBetweenDates(Date date) {
+        int date1 = convertYearToDays(date.getYear()) + convertMonthToDays(date.getMonth(), date.getYear()) + date.getDay();
+        int date2 = convertYearToDays(year) + convertMonthToDays(month, year) + day;
+
+        int result = date1 - date2;
+        if(result < 0) {
+            return result * (-1);
+        } else {
+            return result;
+        }
+
     };
 
     bool operator=(Date date) {
